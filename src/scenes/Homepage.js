@@ -2,9 +2,12 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 
 import Section from "elements/Section";
+import Card from "elements/Card";
+import Lists from "elements/Lists";
 import Header from "parts/Header";
 import Clients from "parts/Clients";
 import Feature from "parts/Feature";
+import Footer from "parts/Footer";
 
 import HeroImage from "assets/images/hero-image.png";
 import FeatureTile01 from "assets/images/feature-tile-icon-01.svg";
@@ -33,6 +36,89 @@ export default function Homepage() {
       title: "Join BWA",
       description:
         "A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.",
+    },
+  ];
+  const listPricing = [
+    {
+      price: 27,
+      currencySymbol: "$",
+      description: "Lorem ipsum is a common text",
+      features: [
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: false,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: false,
+          content: "Execptuer sint occaecat velit",
+        },
+      ],
+    },
+    {
+      price: 47,
+      currencySymbol: "$",
+      description: "Lorem ipsum is a common text",
+      features: [
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: false,
+          content: "Execptuer sint occaecat velit",
+        },
+      ],
+    },
+    {
+      price: 67,
+      currencySymbol: "$",
+      description: "Lorem ipsum is a common text",
+      features: [
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+        {
+          isChecked: true,
+          content: "Execptuer sint occaecat velit",
+        },
+      ],
     },
   ];
   return (
@@ -90,6 +176,7 @@ export default function Homepage() {
                 ))}
               </div>
             </div>
+            ``
           </div>
         </Section>
         {/* End of Features */}
@@ -106,13 +193,56 @@ export default function Homepage() {
                   </p>
                 </div>
               </div>
-              <div className="tiles-wrap"></div>
+              <div className="tiles-wrap">
+                {/* Memunculkan cards */}
+                {listPricing.map((list, index) => (
+                  <Card hasShadow>
+                    <div class="pricing-item-content">
+                      <div class="pricing-item-header pb-24 mb-24">
+                        <div class="pricing-item-price mb-4">
+                          <span class="pricing-item-price-currency h2">
+                            {list.currencySymbol}
+                          </span>
+                          <span
+                            class="pricing-item-price-amount h1 pricing-switchable"
+                            data-pricing-monthly="34"
+                            data-pricing-yearly="27"
+                          >
+                            {list.price}
+                          </span>
+                        </div>
+                        <div class="text-xs text-color-low">
+                          {list.description}
+                        </div>
+                      </div>
+                      <div class="pricing-item-features mb-40">
+                        <div class="pricing-item-features-title h6 text-xs text-color-high mb-24">
+                          What’s included
+                        </div>
+                        <Lists
+                          data={list.features}
+                          isSmall
+                          className="pricing-item-features-list mb-32"
+                        ></Lists>
+                      </div>
+                    </div>
+                    <div class="pricing-item-cta mb-8">
+                      <a class="button button-primary button-block" href="#">
+                        Start free trial
+                      </a>
+                    </div>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </Section>
         {/* End of Pricings */}
       </main>
       {/* End of Main */}
+      {/* Start Footer */}
+      <Footer></Footer>
+      {/* End of Footer */}
     </div>
   );
 }

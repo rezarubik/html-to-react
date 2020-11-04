@@ -1,5 +1,5 @@
 import React from "react";
-import propTypes from "prop-Types";
+import propTypes from "prop-types";
 export default function Card(props) {
   const className = ["tiles-item"];
   className.push(props.className);
